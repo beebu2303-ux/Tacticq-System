@@ -1,17 +1,17 @@
 // ---------- estado (tudo em memória, no navegador) ----------
 let atletas = [
-  {nome:"João Silva", idade:22, posicao:"Atacante", clube:"Nexus FC"},
-  {nome:"Pedro Alves", idade:19, posicao:"Meio-campo", clube:"Nexus FC"},
-  {nome:"Carlos Mendes", idade:26, posicao:"Zagueiro", clube:"Nexus FC"},
-  {nome:"Rafael Souza", idade:24, posicao:"Lateral", clube:"Nexus FC"},
+  {nome:"João Silva", idade:22, posicao:"Atacante", clube:"Attack"},
+  {nome:"Pedro Alves", idade:19, posicao:"Meio-campo", clube:"Clube 19"},
+  {nome:"Carlos Mendes", idade:26, posicao:"Zagueiro", clube:"FFX"},
+  {nome:"Rafael Souza", idade:24, posicao:"Lateral", clube:"Tracer"},
 ];
 let partidas = [
   {data:"21/09/2026", adversario:"Rival FC", campeonato:"Estadual", video:"Processado"},
   {data:"14/09/2026", adversario:"União AC", campeonato:"Estadual", video:"Processado"},
 ];
 let desempenho = [
-  {atleta:"João Silva", vel:31.2, dist:9840},
-  {atleta:"Pedro Alves", vel:28.9, dist:10230},
+  {atleta:"Cristiano Santos", vel:31.2, dist:9840},
+  {atleta:"Pedro Frazão", vel:28.9, dist:10230},
   {atleta:"Carlos Mendes", vel:24.1, dist:8460},
 ];
 const eventos = [

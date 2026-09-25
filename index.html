@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>TacticQ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login">
+  <div class="login-esq">
+    <span class="tag-canto">Sistema de Monitoramento e Operação</span>
+    <div class="marca">
+      <svg width="60" height="60" viewBox="0 0 64 64" fill="none">
+        <path d="M8 14 H56 V24 H38 V56 H26 V24 H8 Z" fill="white"/>
+        <path d="M34 30 L52 40 L34 50 Z" fill="#2f6fed"/>
+      </svg>
+      <div class="nome">TACTIC<span>Q</span></div>
+      <div class="slogan">CONTROLE • ANÁLISE • RESULTADOS</div>
+    </div>
+    <p class="frase">Mais do que dados,<br>decisões inteligentes.</p>
+  </div>
+  <div class="login-dir">
+    <form class="card-login" id="form-login">
+      <h1>Olá,</h1>
+      <p class="sub">Antes de continuar, identifique-se.</p>
+      <div class="erro" id="erro-login">Informe um e-mail válido para continuar.</div>
+      <div class="campo">
+        <label>👤 Usuário</label>
+        <input type="email" id="input-email" placeholder="seuemail@clube.com" required>
+      </div>
+      <div class="campo">
+        <label>🛡️ Função</label>
+        <div class="funcoes">
+          <button type="button" class="funcao-card ativo" data-papel="gestor">
+            <span class="radio-dot"></span><span style="font-size:20px">📊</span>
+            <strong>Gestor</strong><small>Acesso a relatórios, configurações e visão gerencial.</small>
+          </button>
+          <button type="button" class="funcao-card" data-papel="operador">
+            <span class="radio-dot"></span><span style="font-size:20px">🎥</span>
+            <strong>Operador</strong><small>Acesso às operações do dia a dia.</small>
+          </button>
+        </div>
+      </div>
+      <button type="submit" class="btn">Continuar &nbsp;→</button>
+    </form>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="marca-linha">
+      <svg width="26" height="26" viewBox="0 0 64 64" fill="none">
+        <path d="M8 14 H56 V24 H38 V56 H26 V24 H8 Z" fill="white"/>
+        <path d="M34 30 L52 40 L34 50 Z" fill="#2f6fed"/>
+      </svg>
+      <span class="nome">TACTIC<span style="color:var(--accent)">Q</span></span>
+    </div>
+    <nav class="nav">
+      <button class="nav-item ativo" data-pagina="visao-geral">📊 Visão Geral</button>
+      <button class="nav-item" data-pagina="atletas">🧍 Atletas</button>
+      <button class="nav-item" data-pagina="partidas">🎥 Partidas</button>
+      <button class="nav-item" data-pagina="desempenho">📈 Desempenho</button>
+      <button class="nav-item" data-pagina="analises">🧠 Análises de IA</button>
+      <button class="nav-item" data-pagina="scouting" data-somente-gestor>🔎 Scouting</button>
+    </nav>
+    <div class="sidebar-rodape"><span class="badge" id="badge-papel">gestor</span></div>
+  </aside>
+
+  <div class="conteudo">
+    <header class="topbar">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <button class="menu-toggle" id="btn-menu">☰</button>
+        <span class="topbar-titulo">Plataforma de Rastreamento Tático</span>
+      </div>
+      <div class="topbar-usuario">
+        <span id="topo-email">usuario@clube.com</span>
+        <button class="btn-sair" id="btn-sair">Sair</button>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="pagina ativa" data-pagina="visao-geral">
+        <div class="cabecalho-pagina"><h1>Olá 👋</h1><p>Painel consolidado — visão geral do clube.</p></div>
+        <div class="grid-cards">
+          <div class="card-metrica"><div class="rot">Atletas cadastrados</div><div class="val" id="m-atletas">0</div></div>
+          <div class="card-metrica"><div class="rot">Partidas registradas</div><div class="val" id="m-partidas">0</div></div>
+          <div class="card-metrica"><div class="rot">Eventos táticos detectados</div><div class="val" id="m-eventos">0</div></div>
+          <div class="card-metrica"><div class="rot">Vel. máx. média (km/h)</div><div class="val" id="m-vel">0</div></div>
+        </div>
+        <div class="painel">
+          <h3>O que a plataforma faz</h3>
+          <ol style="color:var(--text-2);font-size:13.5px;line-height:1.9;padding-left:18px;">
+            <li>Rastreia jogadores automaticamente a partir do vídeo da partida.</li>
+            <li>Gera mapas de calor e métricas de velocidade/distância por atleta.</li>
+            <li>Sinaliza momentos de desorganização tática com um classificador de IA.</li>
+            <li>Centraliza o histórico de performance para consulta e scouting.</li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="pagina" data-pagina="atletas">
+        <div class="cabecalho-pagina"><h1>Atletas</h1><p>Cadastro base para tracking, scouting e histórico de desempenho.</p></div>
+        <div class="painel">
+          <h3>Novo atleta</h3>
+          <form id="form-atleta">
+            <div class="form-linha">
+              <div class="campo"><label>Nome</label><input id="a-nome" placeholder="Nome completo" required></div>
+              <div class="campo"><label>Idade</label><input id="a-idade" type="number" min="1" max="69" placeholder="Ex.: 22" required></div>
+              <div class="campo"><label>Posição</label><input id="a-posicao" placeholder="Ex.: Atacante" required></div>
+              <div class="campo"><label>Clube</label><input id="a-clube" placeholder="Clube atual" required></div>
+            </div>
+            <button class="btn-primario-inline" type="submit">Cadastrar atleta</button>
+          </form>
+        </div>
+        <div class="painel">
+          <h3>Elenco</h3>
+          <div class="tabela-wrap"><table>
+            <thead><tr><th>Nome</th><th>Idade</th><th>Posição</th><th>Clube</th><th></th></tr></thead>
+            <tbody id="tb-atletas"></tbody>
+          </table></div>
+        </div>
+      </section>
+
+      <section class="pagina" data-pagina="partidas">
+        <div class="cabecalho-pagina"><h1>Partidas</h1><p>Registre a partida e envie o vídeo para processamento automático.</p></div>
+        <div class="painel">
+          <h3>Registrar partida</h3>
+          <form id="form-partida">
+            <div class="form-linha">
+              <div class="campo"><label>Data</label><input id="p-data" placeholder="Ex.: 25/09/2026" required></div>
+              <div class="campo"><label>Adversário</label><input id="p-adversario" placeholder="Nome do adversário" required></div>
+              <div class="campo"><label>Campeonato</label><input id="p-campeonato" placeholder="Ex.: Estadual" required></div>
+              <div class="campo"><label>Vídeo</label><input id="p-video" type="file"></div>
+            </div>
+            <button class="btn-primario-inline" type="submit">Registrar partida</button>
+          </form>
+        </div>
+        <div class="painel">
+          <h3>Partidas registradas</h3>
+          <div class="tabela-wrap"><table>
+            <thead><tr><th>Data</th><th>Adversário</th><th>Campeonato</th><th>Vídeo</th><th></th></tr></thead>
+            <tbody id="tb-partidas"></tbody>
+          </table></div>
+        </div>
+      </section>
+
+      <section class="pagina" data-pagina="desempenho">
+        <div class="cabecalho-pagina"><h1>Desempenho Individual</h1><p>Clique nos números da tabela para editá-los.</p></div>
+        <div class="painel">
+          <h3>Novo registro</h3>
+          <form id="form-desempenho">
+            <div class="form-linha">
+              <div class="campo"><label>Atleta</label><input id="d-atleta" placeholder="Nome do atleta" required></div>
+              <div class="campo"><label>Vel. máxima (km/h)</label><input id="d-vel" type="number" step="0.1" min="0" required></div>
+              <div class="campo"><label>Distância (m)</label><input id="d-dist" type="number" step="1" min="0" required></div>
+            </div>
+            <button class="btn-primario-inline" type="submit">Adicionar registro</button>
+          </form>
+        </div>
+        <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:20px;align-items:start;">
+          <div class="painel">
+            <h3>Registros <span class="tag">Editável</span></h3>
+            <div class="tabela-wrap"><table>
+              <thead><tr><th>Atleta</th><th>Vel. máxima</th><th>Distância</th><th></th></tr></thead>
+              <tbody id="tb-desempenho"></tbody>
+            </table></div>
+          </div>
+          <div class="painel">
+            <h3>Mapa de calor</h3>
+            <div class="heatmap-grade" id="heatmap"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="pagina" data-pagina="analises">
+        <div class="cabecalho-pagina"><h1>Análises de IA</h1><p>Padrões táticos identificados automaticamente, com rastreabilidade completa.</p></div>
+        <div class="painel" id="lista-eventos"></div>
+      </section>
+
+      <section class="pagina" data-pagina="scouting">
+        <div class="cabecalho-pagina"><h1>Scouting de Talentos</h1><p>Cruzamento de posição, idade e métricas físicas do elenco cadastrado.</p></div>
+        <div class="painel">
+          <form id="form-scouting">
+            <div class="form-linha">
+              <div class="campo"><label>Posição</label><input id="s-posicao" placeholder="Ex.: Atacante"></div>
+              <div class="campo"><label>Idade mínima</label><input id="s-idade" type="number" min="0" placeholder="Ex.: 17"></div>
+            </div>
+            <button class="btn-primario-inline" type="submit">Buscar talentos</button>
+          </form>
+        </div>
+        <div class="painel">
+          <h3>Resultados sugeridos</h3>
+          <div class="tabela-wrap"><table>
+            <thead><tr><th>Nome</th><th>Idade</th><th>Posição</th><th>Vel. máxima</th></tr></thead>
+            <tbody id="tb-scouting"></tbody>
+          </table></div>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

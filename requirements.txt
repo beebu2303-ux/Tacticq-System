@@ -1,0 +1,6 @@
+# TacticQ é um site 100% estático (HTML + CSS + JS puro).
+# O servidor.py usa apenas a biblioteca padrão do Python (http.server),
+# então não há nenhuma dependência externa a instalar.
+#
+# Este arquivo existe só por convenção/organização do projeto — rodar
+# "pip install -r requirements.txt" não instala nada e não dá erro.
